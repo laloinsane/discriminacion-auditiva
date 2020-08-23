@@ -2,89 +2,113 @@
   "01": {
     "name": "String Section",
     "code": "01-string-section",
-    "sound": {
-      "duration": {
-        "s": "res://data/instruments/string-section/sounds/string-section-s.ogg",
-        "m": "",
-        "l": "res://data/instruments/string-section/sounds/string-section-l.ogg"
-      }  
+    "sounds": {
+      "01": {
+        "url": "res://data/instruments/string-section/sounds/string-section-s.ogg",
+        "duration": "s"
+      },
+      "02": {
+        "url": "res://data/instruments/string-section/sounds/string-section-l.ogg",
+        "duration": "l"
+      }
     }
   },
   "02": {
     "name": "Piano",
     "code": "02-piano",
-    "sound": {
-      "duration": {
-        "s": "res://data/instruments/piano/sounds/piano-s.ogg",
-        "m": "",
-        "l": "res://data/instruments/piano/sounds/piano-l.ogg"
-      }  
+    "sounds": {
+      "01": {
+        "url": "res://data/instruments/piano/sounds/piano-s.ogg",
+        "duration": "s"
+      },
+      "02": {
+        "url": "res://data/instruments/piano/sounds/piano-l.ogg",
+        "duration": "l"
+      }
     }
   },
   "03": {
     "name": "Rhodes",
     "code": "03-rhodes",
-    "sound": {
-      "duration": {
-        "s": "res://data/instruments/rhodes/sounds/rhodes-s.ogg",
-        "m": "",
-        "l": "res://data/instruments/rhodes/sounds/rhodes-l.ogg"
-      }  
+    "sounds": {
+      "01": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-s.ogg",
+        "duration": "s"
+      },
+      "02": {
+        "url": "res://data/instruments/rhodes/sounds/rhodes-l.ogg",
+        "duration": "l"
+      }
     }
   },
   "04": {
     "name": "Gamer",
     "code": "04-gamer",
-    "sound": {
-      "duration": {
-        "s": "res://data/instruments/gamer/sounds/gamer-s.ogg",
-        "m": "",
-        "l": "res://data/instruments/gamer/sounds/gamer-l.ogg"
-      }  
+    "sounds": {
+      "01": {
+        "url": "res://data/instruments/gamer/sounds/gamer-s.ogg",
+        "duration": "s"
+      },
+      "02": {
+        "url": "res://data/instruments/gamer/sounds/gamer-l.ogg",
+        "duration": "l"
+      }
     }
   },
   "05": {
     "name": "Orch",
     "code": "05-orch",
-    "sound": {
-      "duration": {
-        "s": "res://data/instruments/orch/sounds/orch-s.ogg",
-        "m": "",
-        "l": "res://data/instruments/orch/sounds/orch-l.ogg"
-      }  
+    "sounds": {
+      "01": {
+        "url": "res://data/instruments/orch/sounds/orch-s.ogg",
+        "duration": "s"
+      },
+      "02": {
+        "url": "res://data/instruments/orch/sounds/orch-l.ogg",
+        "duration": "l"
+      }
     }
   },
   "06": {
     "name": "Guitar Chorus",
     "code": "06-guitar-chorus",
-    "sound": {
-      "duration": {
-        "s": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-s.ogg",
-        "m": "",
-        "l": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-l.ogg"
-      }  
+    "sounds": {
+      "01": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-s.ogg",
+        "duration": "s"
+      },
+      "02": {
+        "url": "res://data/instruments/guitar-chorus/sounds/guitar-chorus-l.ogg",
+        "duration": "l"
+      }
     }
   },
   "07": {
     "name": "Choir",
     "code": "07-choir",
-    "sound": {
-      "duration": {
-        "s": "res://data/instruments/choir/sounds/choir-s.ogg",
-        "m": "",
-        "l": "res://data/instruments/choir/sounds/choir-l.ogg"
-      }  
+    "sounds": {
+      "01": {
+        "url": "res://data/instruments/choir/sounds/choir-s.ogg",
+        "duration": "s"
+      },
+      "02": {
+        "url": "res://data/instruments/choir/sounds/choir-l.ogg",
+        "duration": "l"
+      }
     }
   },
   "08": {
     "name": "Brass High",
     "code": "08-brass-high",
-    "sound": {
-      "duration": {
-        "s": "res://data/instruments/brass-high/sounds/brass-high-s.ogg",
-        "m": "",
-        "l": "res://data/instruments/brass-high/sounds/brass-high-l.ogg"
-      }  
+    "sounds": {
+      "01": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-s.ogg",
+        "duration": "s"
+      },
+      "02": {
+        "url": "res://data/instruments/brass-high/sounds/brass-high-l.ogg",
+        "duration": "l"
+      }
     }
   }
 }

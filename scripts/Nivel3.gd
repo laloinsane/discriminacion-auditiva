@@ -1,7 +1,7 @@
 extends Node2D
 
 export(PackedScene) var Objeto
-const objects_file = "res://data/comparation.json"
+const objects_file = "res://data/instruments.json"
 var json
 var audio = AudioStreamPlayer.new()
 var ogg = AudioStreamOGGVorbis.new()
@@ -65,17 +65,30 @@ func set_objects(x):
 					obj.set_id(z)
 					obj.set_nombre(x[z]["name"])
 					obj.set_code(x[z]["code"])
-					obj.set_sound(x[z]["sound"])
-					obj.set_image(x[z]["image"])
+					obj.set_sound(x[z]["sound"]["duration"]["s"])
+#					obj.set_sound(x[z]["sound"])
+#					obj.set_image(x[z]["image"])
 					$Objects.add_child(obj)
-				if z == deck[y+1]:
-					var obj = Objeto.instance()
-					obj.set_id(z)
-					obj.set_nombre(x[z]["name"])
-					obj.set_code(x[z]["code"])
-					obj.set_sound(x[z]["sound"])
-					obj.set_image(x[z]["image"])
-					$Objects.add_child(obj)
+					
+					print(x[z]["sound"]["duration"]["s"])
+					
+					var obj2 = Objeto.instance()
+					obj2.set_id(z)
+					obj2.set_nombre(x[z]["name"])
+					obj2.set_code(x[z]["code"])
+					obj2.set_sound(x[z]["sound"]["duration"]["l"])
+#					obj.set_sound(x[z]["sound"])
+#					obj.set_image(x[z]["image"])
+					$Objects.add_child(obj2)
+					
+#				if z == deck[y+1]:
+#					var obj = Objeto.instance()
+#					obj.set_id(z)
+#					obj.set_nombre(x[z]["name"])
+#					obj.set_code(x[z]["code"])
+##					obj.set_sound(x[z]["sound"])
+##					obj.set_image(x[z]["image"])
+#					$Objects.add_child(obj)
 			indexList.remove(y+1)
 			deck.remove(y+1)
 			indexList.remove(y)
@@ -93,6 +106,7 @@ func set_sounds(x):
 			count += 1
 
 func set_options(x, agregar):
+	print(x)
 	# Distribucion de los objetos
 	var all = Array()
 	var options = Array()
@@ -129,8 +143,9 @@ func set_options(x, agregar):
 				obj.set_id(z)
 				obj.set_nombre(x[z]["name"])
 				obj.set_code(x[z]["code"])
-				obj.set_sound(x[z]["sound"])
-				obj.set_image(x[z]["image"])
+				obj.set_sound(x[z]["sound"]["duration"]["s"])
+#				obj.set_sound(x[z]["sound"])
+#				obj.set_image(x[z]["image"])
 				obj.position = Vector2(card_x,360)
 				card_x = card_x + card_width
 				$Options.add_child(obj)
