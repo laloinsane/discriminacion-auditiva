@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/rhodes-l.ogg-9cdb13228349ee19c95fcb3f2f325b5f.oggstr"
+
+[deps]
+
+source_file="res://data/instruments/rhodes/sounds/rhodes-l.ogg"
+dest_files=[ "res://.import/rhodes-l.ogg-9cdb13228349ee19c95fcb3f2f325b5f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
