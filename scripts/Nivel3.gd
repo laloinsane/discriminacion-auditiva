@@ -29,7 +29,7 @@ func _ready():
 	set_objects(json)
 	set_sounds(2)
 	_on_Escuchar_pressed()
-	set_options(json, 0)
+#	set_options(json, 0)
 	
 func update_indicaciones(x):
 	$Display/Margin1/Indicaciones.clear()
@@ -57,42 +57,44 @@ func set_objects(x):
 		var indexList = range(deck.size())
 		randomize()
 		var y = randi()%indexList.size()
-		var residuo = y % 2
-		if residuo == 0:
-			for z in x:
-				if z == deck[y]:
-					var obj = Objeto.instance()
-					obj.set_id(z)
-					obj.set_nombre(x[z]["name"])
-					obj.set_code(x[z]["code"])
-					obj.set_sound(x[z]["sound"]["duration"]["s"])
-#					obj.set_sound(x[z]["sound"])
-#					obj.set_image(x[z]["image"])
-					$Objects.add_child(obj)
-					
-					print(x[z]["sound"]["duration"]["s"])
-					
-					var obj2 = Objeto.instance()
-					obj2.set_id(z)
-					obj2.set_nombre(x[z]["name"])
-					obj2.set_code(x[z]["code"])
-					obj2.set_sound(x[z]["sound"]["duration"]["l"])
-#					obj.set_sound(x[z]["sound"])
-#					obj.set_image(x[z]["image"])
-					$Objects.add_child(obj2)
-					
-#				if z == deck[y+1]:
-#					var obj = Objeto.instance()
-#					obj.set_id(z)
-#					obj.set_nombre(x[z]["name"])
-#					obj.set_code(x[z]["code"])
-##					obj.set_sound(x[z]["sound"])
-##					obj.set_image(x[z]["image"])
-#					$Objects.add_child(obj)
-			indexList.remove(y+1)
-			deck.remove(y+1)
-			indexList.remove(y)
-			deck.remove(y)
+		for z in x:
+			if z == deck[y]:
+				var obj = Objeto.instance()
+				obj.set_id(z)
+				obj.set_nombre(x[z]["name"])
+				obj.set_code(x[z]["code"])
+				
+				var volume = Array()
+				for i in x[z]["sounds"]:
+					if (x[z]["sounds"][str(i)]["volume"] == "m"):
+						volume.append(i)
+				
+				var indexSounds = range(volume.size())
+				randomize()
+				var ran = randi()%indexSounds.size()
+				obj.set_sound(x[z]["sounds"][str(volume[ran])]["url"])
+				$Objects.add_child(obj)
+				
+				var obj2 = Objeto.instance()
+				obj2.set_id(z)
+				obj2.set_nombre(x[z]["name"])
+				obj2.set_code(x[z]["code"])
+				
+				var volume2 = Array()
+				for i in x[z]["sounds"]:
+					if (x[z]["sounds"][str(i)]["volume"] == "m"):
+						volume2.append(i)
+				
+				var indexSounds2 = range(volume2.size())
+				randomize()
+				var ran2 = randi()%indexSounds2.size()
+				obj2.set_sound(x[z]["sounds"][str(volume2[ran2])]["url"])
+				$Objects.add_child(obj2)
+
+		indexList.remove(y+1)
+		deck.remove(y+1)
+		indexList.remove(y)
+		deck.remove(y)
 
 func set_sounds(x):
 	var count = 0
@@ -102,11 +104,11 @@ func set_sounds(x):
 			var obj = $Objects.get_child(count)
 			$Objects.remove_child(i)
 			$Sounds.add_child(obj)
+			print(obj)
 		else:
 			count += 1
 
 func set_options(x, agregar):
-	print(x)
 	# Distribucion de los objetos
 	var all = Array()
 	var options = Array()
@@ -143,7 +145,7 @@ func set_options(x, agregar):
 				obj.set_id(z)
 				obj.set_nombre(x[z]["name"])
 				obj.set_code(x[z]["code"])
-				obj.set_sound(x[z]["sound"]["duration"]["s"])
+				obj.set_sound(x[z]["sounds"]["01"]["url"])
 #				obj.set_sound(x[z]["sound"])
 #				obj.set_image(x[z]["image"])
 				obj.position = Vector2(card_x,360)
@@ -157,6 +159,7 @@ func _on_Escuchar_pressed():
 		$Display/Margin2/Escuchar.disabled = true
 		for i in $Sounds.get_children():
 			if seleccionados != 1:
+				print(i.get_sound())
 				ogg = load(i.get_sound())
 				ogg.loop = false
 				audio.stream = ogg
@@ -178,7 +181,11 @@ func _on_Igual_pressed():
 		seleccionados += 1
 		intentos_level += 1
 		audio.stop()
-		if $Sounds.get_child(0).code == $Sounds.get_child(1).code:
+#		if $Sounds.get_child(0).code == $Sounds.get_child(1).code:
+#			correct()
+#		else:
+#			incorrect()
+		if $Sounds.get_child(0).sound == $Sounds.get_child(1).sound:
 			correct()
 		else:
 			incorrect()
@@ -189,7 +196,11 @@ func _on_Diferente_pressed():
 		seleccionados += 1
 		intentos_level += 1
 		audio.stop()
-		if $Sounds.get_child(0).code != $Sounds.get_child(1).code:
+#		if $Sounds.get_child(0).code != $Sounds.get_child(1).code:
+#			correct()
+#		else:
+#			incorrect()
+		if $Sounds.get_child(0).sound != $Sounds.get_child(1).sound:
 			correct()
 		else:
 			incorrect()
@@ -201,13 +212,13 @@ func correct():
 		$HUD.update_score(score_total)
 		$Timer.start()
 		$HUD.show_popup_comparation("res://assets/icons/correct.png", "res://assets/sounds/Ganar.ogg")
-		$Options.visible = true
+#		$Options.visible = true
 
 func incorrect():
 	if Global.nivels_level == 1:
 		$Timer.start()
 		$HUD.show_popup_comparation("res://assets/icons/incorrect.png", "res://assets/sounds/Perder.ogg")
-		$Options.visible = true
+#		$Options.visible = true
 
 func _on_Timer_timeout():
 	time_left -=1
