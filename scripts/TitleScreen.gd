@@ -31,7 +31,7 @@ func _on_Nivel2_pressed():
 	audiobtn.play()
 	Global.update_title("MEMORIA AUDITIVA")
 	Global.update_description("[fill]EL JUEGO CONSTA DE CUATRO ETAPAS. A MEDIDA QUE VAS AVANZANDO ESTE INCREMENTA EN DIFICULTAD. HAY QUE COLOCAR MUCHA ATENCION AL ORDEN EN EL QUE ESCUCHES LOS SONIDOS, PORQUE DEBERAS [color=#ffd948]ORDENAR[/color] LAS IMAGENES POSTERIOR A ESTO. SI PRESENTAS UN PUNTAJE [rainbow freq=0.1 sat=0.5 val=1]IGUAL[/rainbow] A [color=#ffd948]DOS[/color] EN CADA ETAPA PASAS A LA SIGUIENTE, SINO LO PUEDES VOLVER A INTERNTAR LAS VECES QUE QUIERAS.[/fill]")
-	Global.update_redirect("Nivel2")
+	Global.update_redirect("Nivel4")
 	$Transition.fadeIn("Information")
 
 func _on_Nivel3_pressed():
