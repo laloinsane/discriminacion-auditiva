@@ -81,9 +81,13 @@ func set_objects(x):
 				
 				var volume = Array()
 				for i in x[z]["sounds"]:
-					if (x[z]["sounds"][str(i)]["volume"] == "m" and (x[z]["sounds"][str(i)]["duration"] == "s" or x[z]["sounds"][str(i)]["duration"] == "l")):
-						volume.append(i)
-#						print("ja1")
+					if Global.nivels_level == 1:
+						if (x[z]["sounds"][str(i)]["volume"] == "m" and (x[z]["sounds"][str(i)]["duration"] == "s" or x[z]["sounds"][str(i)]["duration"] == "l")):
+							volume.append(i)
+
+					if Global.nivels_level == 2:
+						if (x[z]["sounds"][str(i)]["volume"] == "m"):
+							volume.append(i)
 				
 				var indexSounds = range(volume.size())
 				randomize()
@@ -98,9 +102,13 @@ func set_objects(x):
 				
 				var volume2 = Array()
 				for i in x[z]["sounds"]:
-					if (x[z]["sounds"][str(i)]["volume"] == "m" and (x[z]["sounds"][str(i)]["duration"] == "s" or x[z]["sounds"][str(i)]["duration"] == "l")):
-						volume2.append(i)
-#						print("ja2")
+					if Global.nivels_level == 1:
+						if (x[z]["sounds"][str(i)]["volume"] == "m" and (x[z]["sounds"][str(i)]["duration"] == "s" or x[z]["sounds"][str(i)]["duration"] == "l")):
+							volume2.append(i)
+							
+					if Global.nivels_level == 2:
+						if (x[z]["sounds"][str(i)]["volume"] == "m"):
+							volume2.append(i)
 						
 				var indexSounds2 = range(volume2.size())
 				randomize()
