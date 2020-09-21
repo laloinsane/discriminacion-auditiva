@@ -18,7 +18,7 @@ func _ready():
 	score_total = Global.nivels_score
 	# Display
 	if Global.nivels_level == 1:
-		update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"E IDENTIFICA SI LAS PALABRAS SON [color=#FFD948]IGUALES[/color] O [color=#FFD948]DIFERENTES[/color]\"[/center]")
+		update_indicaciones("[center]ESCUCHA CON ATENCION [img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"E IDENTIFICA SI LOS SONIDOS\n SON [color=#FFD948]IGUALES[/color] O [color=#FFD948]DIFERENTES[/color] EN DURACION\"[/center]")
 	# Transition
 	$Transition.fadeOut()
 	yield($Transition/AnimationPlayer, "animation_finished")
@@ -358,11 +358,11 @@ func next():
 #			$HUD.show_popup_finalizar("[center]¡FELICITACIONES!\nPUNTAJE FINAL : "+str(score_total)+" DE 8 PUNTOS\n\n[img=50x50]res://assets/emojis/win1.png[/img][img=50x50]res://assets/emojis/win2.png[/img][img=50x50]res://assets/emojis/win3.png[/img][/center]")
 		else:
 			$Display/Margin2/Escuchar.visible = false
-			$HUD.show_popup_reintentar("[center]HAS OBTENIDO : "+str(score_total)+" DE 8 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser1.png[/img][img=50x50]res://assets/emojis/loser2.png[/img][/center]")
+			$HUD.show_popup_reintentar("[center]HAS OBTENIDO : "+str(score_total)+" DE 16 PUNTOS\nSIGUELO INTENTANDO\n\n[img=50x50]res://assets/emojis/loser1.png[/img][img=50x50]res://assets/emojis/loser2.png[/img][/center]")
 
 func next_level(s,t,l):
 	if l == 2:
-		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\n\"PRESIONA [color=#FFD948]LOS[/color] ANIMALES QUE ESCUCHES\"[/center]")
+		update_indicaciones("[center][img=40x40]res://assets/emojis/emoji_u1f449_1f3fb.png[/img] [img=40x40]res://assets/emojis/emoji_u1f442_1f3fb.png[/img]\n\"E IDENTIFICA SI LOS SONIDOS\n SON [color=#FFD948]IGUALES[/color] O [color=#FFD948]DIFERENTES[/color] EN DURACION\"[/center]")
 	$Display/Margin2/Escuchar.visible = true
 	# Timer
 	$Timer.stop()
